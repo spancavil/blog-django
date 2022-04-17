@@ -1,0 +1,28 @@
+{% extends 'appblog/base.html' %}
+{% block main %}
+<form action="/search-post" method="GET">
+    {% csrf_token %}
+    <table class="table table-striped">
+        {{search_form.as_table}}
+    </table>
+
+    <input type="submit" value="Search">
+</form>
+
+{% if error %}
+    <p style="color:red">{{error}}</p>
+{% endif %}
+
+{% if post %}
+    {% for item in post %}
+        <div style="background-color: antiquewhite; padding: 30px; margin: 20px;">
+            <p> Post encontrado! : <span style="font-weight: bold;">{{item.title}}</span></p>
+            <button class="btn btn-primary btn-sm mt-2"><a href="{% url 'Page detail' item.id %}"
+                    style="text-decoration: none; color: inherit;">Ver detalle</a></button>
+        </div>
+    {% endfor %}
+{% elif nopost %}
+    <p> No se encontró ningún post con el título relacionado</p>
+{% endif %}
+
+{% endblock %}

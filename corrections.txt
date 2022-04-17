@@ -1,0 +1,11 @@
+Los posts deben encontrarse en la ruta "pages/" OK
+Para acceder a un post, debo ir a "pages/<id>/" OK
+Se debe mostrar un mensaje cuando no existan posts cargados OK
+Hay un error al momento de cargar un avatar a un usuario OK
+Falta el campo subtitulo dentro de los posts que es el que debes mostrar en las tarjetas tambien OK
+La idea de un CRUD es que pueda hacerlo un usuario normal sin permisos de SuperUsuario. En tu caso solo puedo listar y crear posts , pero no puedo editarlos ni borrarlos a menos que sea un superusuario y lo haga desde el panel de administracion. El detalle que vas a tener en cuenta es que un usuario pueda eliminar solo sus posts y no los de otros OK
+La ruta para el proceso de registro de usuarios debe ser "accounts/signup/" OK
+La ruta para el proceso de Login debe ser "accounts/login/" OK
+La ruta para ver mi perfil debe ser "accounts/profile/" OK
+Falta el sistema de mensajeria entre usuarios OK
+Deben haber como minimo dos aplicaciones dentro del proyecto. Una de ellas es la de Accounts que es la encargada de administrar a los usuarios OK

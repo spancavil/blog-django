@@ -1,0 +1,19 @@
+{% extends 'appblog/base.html' %}
+{% block main %}
+<div style="padding: 3em;">
+    <ul class="list-group">
+    {% for item in chat %}
+        <li class="list-group-item list-group-item-info">
+            {{item.user}} ({{item.createdAt}}): {{item.chat}}
+        </li>
+    {% endfor %}
+    </ul>
+    <form method="POST">
+        {% csrf_token %}
+        <table class="table table-striped">
+            {{chat_form.as_table}}
+        </table>
+        <input type="submit" value="Send">
+    </form>
+</div>
+{% endblock %}

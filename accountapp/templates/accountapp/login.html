@@ -1,0 +1,15 @@
+{% extends 'appblog/base.html' %}
+{% block main %}
+<div class="loginContainer">
+    <form method="POST" class="loginForm">
+        {% csrf_token %}
+        <table class="table table-dark table-striped">
+            {{login_form.as_table}}
+        </table>
+        <button class="btn btn-primary m-2" type="submit">Login</button>
+    </form>
+    {% if error %}
+        <p class="m-2" style="color: red;">{{error}}</p>
+    {% endif %}
+</div>
+{% endblock %}

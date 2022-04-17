@@ -1,0 +1,26 @@
+{% extends 'appblog/base.html' %}
+{% block main %}
+    <div class="profileContainer">
+        <div class="profileInfo">
+            <h4>Usuario: {{user.username}}</h4>
+            <h4>Last login: {{user.last_login}}</h4>
+            {% if user.first_name and user.last_name %}
+                <h4>{{user.first_name}} {{user.last_name}}</h4>
+            {% else %}
+                <h4>No firstname / lastname</h4>
+            {% endif %}
+            <h4>Change my <a href="{% url 'Avatar'%}">avatar</a></h4>
+        </div>
+        <form method="POST" class="loginForm">
+            <h4 style="font-weight: bold; font-style: italic;">Edit my data</h4>
+            {% csrf_token %}
+            <table class="table table-striped">
+                {{user_form.as_table}}
+            </table>
+            <button class="btn btn-primary m-2" type="submit">Confirm</button>
+            {% if edit_success %}
+                <h4 style="font-style: italic; color: green;">User data changed successfully!</h4>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

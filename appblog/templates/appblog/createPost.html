@@ -1,0 +1,13 @@
+{% extends 'appblog/base.html' %}
+{% block main %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table table-striped">
+            {{formulario.as_table}}
+        </table>
+
+        <input type="submit" value="Post">
+    </form>
+    
+{% endblock %}

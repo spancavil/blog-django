@@ -1,0 +1,24 @@
+{% extends 'appblog/base.html' %}
+{% block main %}
+    <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 40px; flex-wrap: wrap; padding: 30px;">
+        {% for post in posts %}
+            <div class="postContainer"><a style="text-decoration: none; color: inherit; overflow: visible; position: relative;" href="{% url 'Page detail' post.id %}">
+                {% if post.user.username == user.username %}
+                    <div style="background-color: sandybrown; border-radius: 20px; height: 50px; text-align: center; position: absolute; top: -35px; right: -40px; padding: 10px;">
+                        <span style="font-size: 14px; font-style: italic;">My authorship</span>
+                    </div>
+                {% endif %}
+                <h5 style="text-align: center;">{{post.title}}</h5>
+                <h4 style="text-align: center;">{{post.subtitle}}</h4>
+                <img src="/media/{{post.image}}" width="90%"/>
+                <p style="font-style: italic;">Author: {{post.author}}</p>
+                <p style="font-style: italic;">{{post.createdAt}}</p>
+                </a>
+            </div>
+        {% endfor %}
+        {% if no_posts %}
+            <h5>No hay posts cargados</h5>
+        {% endif %}
+
+    </div>
+{% endblock %}
