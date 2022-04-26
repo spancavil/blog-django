@@ -144,4 +144,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 django_on_heroku.settings(locals())
 
 #Added trusted origins
-CSRF_TRUSTED_ORIGINS = ['https://django-blog-coderhouse.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://django-blog-coderhouse.herokuapp.com']
